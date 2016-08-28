@@ -59,6 +59,10 @@ say_verbose() {
 get_current_os_name() {
     eval $invocation
 
+    # The script is unable to detect nixos; let's default to centos here
+    echo "centos"
+    return 0
+
     local uname=$(uname)
     if [ "$uname" = "Darwin" ]; then
         echo "osx"
